@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+<title>Khalid AbdiHakim | Software Engineering Student</title>
+<meta name="description" content="Portfolio of Khalid AbdiHakim Isse Maygaag, a Software Engineering student learning software development, Linux, AI & data, and cybersecurity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f14; --surface:#10161d; --line:#1f2933; --text:#e8edf2; --muted:#93a1b0; --accent:#4fd1c5; --accent-soft:rgba(79,209,197,.12);
+  --head:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f8fa;--surface:#fff;--line:#d9e0e7;--text:#10161d;--muted:#566472;--accent:#0f766e;--accent-soft:rgba(15,118,110,.1)}}
+:root[data-theme="light"]{--bg:#f6f8fa;--surface:#fff;--line:#d9e0e7;--text:#10161d;--muted:#566472;--accent:#0f766e;--accent-soft:rgba(15,118,110,.1)}
+:root[data-theme="dark"]{--bg:#0b0f14;--surface:#10161d;--line:#1f2933;--text:#e8edf2;--muted:#93a1b0;--accent:#4fd1c5;--accent-soft:rgba(79,209,197,.12)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.7 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--head);line-height:1.15;margin:0}
+section{padding:88px 0 0}
+h2{font-size:clamp(1.6rem,3.5vw,2.1rem);font-weight:600;letter-spacing:-.01em;margin-bottom:12px}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 36px}
+.mono{font-family:var(--mono);font-size:.78rem}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;padding-top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:var(--head);font-weight:600;text-decoration:none}
+.links{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.links a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
+.links a:hover{color:var(--text)}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 12px;font:inherit;font-size:.85rem;cursor:pointer}
+@media(max-width:760px){
+  .menu{display:block}
+  .links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px 16px}
+  .links.open{display:flex}
+  .links a{display:block;padding:10px 0}
+}
+
+/* hero */
+.hero{padding:clamp(72px,14vh,150px) 0 0}
+.hero .tag{color:var(--accent);margin-bottom:20px}
+.hero h1{font-size:clamp(2.6rem,8vw,5rem);font-weight:700;letter-spacing:-.03em}
+.role{font-family:var(--head);font-size:clamp(1.2rem,3vw,1.7rem);color:var(--muted);margin:14px 0 0;font-weight:500}
+.cursor{display:inline-block;width:.55em;height:1em;background:var(--accent);vertical-align:-.12em;margin-left:6px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.sub{max-width:24ch;margin:32px 0 0;font-family:var(--head);font-weight:500;font-size:clamp(1.35rem,3.6vw,2rem);line-height:1.3;letter-spacing:-.01em}
+.hero p.sub.muted{max-width:56ch;color:var(--muted);margin-top:16px;font-family:var(--body);font-weight:400;font-size:1.05rem;line-height:1.7;letter-spacing:0}
+.status{display:inline-flex;align-items:center;gap:10px;margin:28px 0 0;padding:6px 14px;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:500;font-size:.95rem;border:1px solid var(--line);transition:border-color .2s,background .2s,transform .2s}
+.btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+.btn.primary{background:var(--accent);color:#04201d;border-color:var(--accent)}
+.btn.primary:hover{box-shadow:0 0 24px var(--accent-soft)}
+.hero-load{animation:rise .8s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* about */
+.about{max-width:62ch}
+.about p{margin:0 0 18px}
+
+/* skills */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;transition:border-color .2s}
+.card:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.card h3{font-size:1.1rem;margin-bottom:14px;font-weight:600}
+.skill{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:.95rem}
+.skill:first-of-type{border-top:0}
+.lvl{font-family:var(--mono);font-size:.72rem;color:var(--accent);background:var(--accent-soft);padding:2px 9px;border-radius:99px;white-space:nowrap}
+.note{color:var(--muted);font-size:.88rem;margin-top:20px}
+
+/* projects + placeholders */
+.ph{border-style:dashed}
+.badge{display:inline-block;font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px dashed var(--muted);padding:2px 9px;border-radius:99px;margin-bottom:14px}
+.badge.plan{color:var(--accent);border:1px solid var(--accent);background:var(--accent-soft)}
+.card p{color:var(--muted);margin:0 0 14px;font-size:.95rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid var(--line);padding:2px 9px;border-radius:6px}
+
+/* timeline */
+.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:1px solid var(--line)}
+.tl li{position:relative;padding:0 0 34px 8px}
+.tl li::before{content:"";position:absolute;left:-28px;top:9px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
+.tl li.now::before{border-color:var(--accent);background:var(--accent)}
+.tl h3{font-size:1.15rem;font-weight:600}
+.tl .where{color:var(--muted);margin:2px 0 8px}
+.tl .when{font-family:var(--mono);font-size:.76rem;color:var(--accent)}
+.tl ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:.95rem}
+
+/* learning */
+.learn{display:flex;flex-wrap:wrap;gap:12px}
+.learn span{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-size:.95rem}
+.learn span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:10px;vertical-align:1px}
+
+/* contact */
+.contact .card{max-width:640px}
+.contact .mail{font-family:var(--head);font-size:clamp(1.1rem,3.5vw,1.5rem);font-weight:600;word-break:break-all;text-decoration:none;border-bottom:2px solid var(--accent)}
+.profiles{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 0}
+.profiles a{border:1px dashed var(--muted);border-radius:10px;padding:8px 16px;text-decoration:none;font-size:.92rem;color:var(--muted);transition:color .2s,border-color .2s}
+.profiles a:hover{color:var(--text);border-color:var(--accent)}
+.profiles a.live{border-style:solid;border-color:var(--line);color:var(--text)}
+.profiles a.live:hover{border-color:var(--accent)}
+.profiles a small{font-family:var(--mono);font-size:.68rem;margin-left:8px;opacity:.8}
+
+footer{margin-top:96px;border-top:1px solid var(--line);padding:28px 0 36px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* single, quiet reveal on scroll */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero-load{animation:none}
+  .cursor{animation:none}
+  .btn,.card{transition:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="brand" href="#top">Khalid AbdiHakim</a>
+      <button class="menu" aria-expanded="false" aria-controls="links">Menu</button>
+      <ul class="links" id="links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#learning">Learning</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero hero-load">
+    <div class="tag mono">$ whoami</div>
+    <h1>Khalid AbdiHakim</h1>
+    <p class="role">Software Engineering Student<span class="cursor" aria-hidden="true"></span></p>
+    <p class="sub">Building, learning, and turning curiosity into practical skills.</p>
+    <p class="sub muted">Exploring software development, Linux, AI &amp; data, cybersecurity, and digital technology.</p>
+    <p class="status mono"><i aria-hidden="true"></i>Currently studying Software Engineering</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="cv.pdf" download>Download CV</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <section id="about" class="wrap reveal">
+    <h2>About me</h2>
+    <div class="about">
+      <p>I'm Khalid, a Software Engineering student with a growing interest in software development, Linux, cybersecurity, AI and digital technology.</p>
+      <p>My journey started with practical ICT and digital work: computer support, printing, and supermarket and customer work. Over time my interest in technology got deeper, and now I'm going further into software engineering, building real projects and learning through practice.</p>
+      <p>I'm still early in the journey, and this site is where I document it. I'm looking for remote work, internships, and freelance opportunities, and I want to grow step by step into stronger technical roles.</p>
+    </div>
+  </section>
+
+  <section id="skills" class="wrap reveal">
+    <h2>Skills</h2>
+    <p class="lead">Grouped by area, with an honest level where I have one. No percentages.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Software and web</h3>
+        <div class="skill"><span>HTML</span><span class="lvl">Intermediate</span></div>
+        <div class="skill"><span>CSS</span><span class="lvl">Intermediate</span></div>
+        <div class="skill"><span>Programming</span><span class="lvl">Intermediate</span></div>
+        <div class="skill"><span>Software engineering</span><span class="lvl">Learning</span></div>
+      </div>
+      <div class="card">
+        <h3>Linux, networking and security</h3>
+        <div class="skill"><span>Linux</span><span class="lvl">Beginner, studying</span></div>
+        <div class="skill"><span>Kali Linux</span><span class="lvl">Studying</span></div>
+        <div class="skill"><span>Command line / terminal</span><span class="lvl">Learning</span></div>
+        <div class="skill"><span>Basic networking</span><span class="lvl">Beginner</span></div>
+        <div class="skill"><span>Cybersecurity</span><span class="lvl">Learning</span></div>
+      </div>
+      <div class="card">
+        <h3>AI and data work</h3>
+        <div class="skill"><span>Data annotation</span></div>
+        <div class="skill"><span>AI training and evaluation</span></div>
+        <div class="skill"><span>Data-related tasks</span></div>
+        <div class="skill"><span>Online research</span></div>
+        <div class="skill"><span>Data entry</span></div>
+      </div>
+      <div class="card">
+        <h3>Digital, creative and support</h3>
+        <div class="skill"><span>Digital marketing</span></div>
+        <div class="skill"><span>E-commerce</span></div>
+        <div class="skill"><span>Graphic design</span></div>
+        <div class="skill"><span>Video editing</span></div>
+        <div class="skill"><span>Multimedia</span></div>
+        <div class="skill"><span>Computer / ICT support</span></div>
+      </div>
+    </div>
+    <p class="note">Levels are only shown where I've defined one. I'll add more detail as I build projects that use these skills.</p>
+  </section>
+
+  <section id="projects" class="wrap reveal">
+    <h2>Projects</h2>
+    <p class="lead">Projects I'm planning and building. Each card shows its real status, so you can see what's planned, in progress, or finished. Nothing here is marked as done until it is.</p>
+    <div class="grid">
+      <article class="card">
+        <span class="badge plan">Planned &middot; flagship project</span>
+        <h3>Remote Work Hub</h3>
+        <p>A personal platform for finding and organising legitimate remote opportunities. Planned features: listings with search and filters, categories (data annotation, AI evaluation, data entry, digital marketing, software, design), skill requirements, saved opportunities, an application tracker (Saved, Applied, Interview, Accepted), and a personal dashboard.</p>
+        <p>I plan to build it in stages: responsive frontend, JavaScript functionality, backend and API, database, authentication, then deployment.</p>
+        <div class="chips"><span>Frontend first</span><span>Backend + database later</span></div>
+      </article>
+      <article class="card">
+        <span class="badge plan">Planned</span>
+        <h3>Khalid OS</h3>
+        <p>A web-based Linux learning and terminal platform that feels like a mini Linux environment. Planned features: an interactive terminal, command and file-system simulation, command history, beginner to intermediate challenges with hints, and progress saved locally.</p>
+        <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React / TypeScript later</span></div>
+      </article>
+      <article class="card">
+        <span class="badge plan">Planned</span>
+        <h3>AI Data Lab</h3>
+        <p>An AI and data annotation workspace that simulates a data-labelling environment. Planned features: a task interface, text classification and sentiment labelling, data validation and quality checks, a progress dashboard, and CSV/JSON export of labelled data.</p>
+        <div class="chips"><span>JavaScript / TypeScript</span><span>Backend later</span></div>
+      </article>
+      <article class="card ph">
+        <span class="badge">Placeholder, project to be added</span>
+        <h3>Next project</h3>
+        <p>A short description of what this project does and what I learned building it.</p>
+        <div class="chips"><span>Tech</span><span>Status</span><span>Code link</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="education" class="wrap reveal">
+    <h2>Education</h2>
+    <ol class="tl">
+      <li class="now">
+        <h3>Bachelor of Software Engineering</h3>
+        <div class="when">Currently studying</div>
+      </li>
+      <li>
+        <h3>ICT / IT Diploma</h3>
+        <div class="where">Orbit International College</div>
+      </li>
+      <li>
+        <h3>High school</h3>
+        <div class="when">Completed</div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="experience" class="wrap reveal">
+    <h2>Experience</h2>
+    <p class="lead">Practical work that shaped how I approach technology and people.</p>
+    <ol class="tl">
+      <li>
+        <h3>Supermarket Assistant</h3>
+        <div class="where">Supermarket</div>
+        <div class="when">2024 &ndash; 2025</div>
+        <ul>
+          <li>Customer service and helping customers</li>
+          <li>Sales</li>
+          <li>Product arrangement and shelving</li>
+          <li>Stock handling and inventory-related tasks</li>
+          <li>Keeping products organised</li>
+          <li>General day-to-day supermarket operations</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Computer Lab Assistant</h3>
+        <div class="where">Orbit International College</div>
+        <div class="when">2023 &ndash; 2024 &middot; past role</div>
+        <ul>
+          <li>Basic computer assistance and computer lab support</li>
+          <li>Helping users and students with computers and digital tasks</li>
+        </ul>
+      </li>
+      <li>
+        <h3>Print Shop Worker</h3>
+        <div class="where">Print Shop</div>
+        <div class="when">2021 &ndash; 2023</div>
+        <ul>
+          <li>Printing and document handling</li>
+          <li>Basic computer and digital tasks</li>
+          <li>Customer service</li>
+          <li>General print-shop operations</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <section id="learning" class="wrap reveal">
+    <h2>Currently learning</h2>
+    <p class="lead">What I'm working on right now.</p>
+    <div class="learn">
+      <span>Software engineering</span>
+      <span>Programming</span>
+      <span>Web development</span>
+      <span>Linux</span>
+      <span>Cybersecurity fundamentals</span>
+      <span>AI and data skills</span>
+      <span>Professional English</span>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap contact reveal">
+    <h2>Contact</h2>
+    <p class="lead">Open to remote work, internships, freelance projects, and conversations about tech. The best way to reach me is email.</p>
+    <div class="card">
+      <a class="mail" href="mailto:Khalidlegendary1@gmail.com">Khalidlegendary1@gmail.com</a>
+      <div class="profiles">
+        <a class="live" href="https://github.com/khalidlegendary1-crypto" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="live" href="https://www.linkedin.com/in/khalid-abdi-8748b443b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <div class="btns"><a class="btn primary" href="cv.pdf" download>Download CV</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Khalid AbdiHakim Isse Maygaag</span>
+    <span class="mono">Built with HTML, CSS and a little JavaScript</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
+  var btn=document.querySelector('.menu'), links=document.getElementById('links');
+  btn.addEventListener('click',function(){
+    var open=links.classList.toggle('open'); btn.setAttribute('aria-expanded',open);
+  });
+  links.addEventListener('click',function(e){ if(e.target.tagName==='A'){links.classList.remove('open');btn.setAttribute('aria-expanded',false);} });
+  document.querySelectorAll('a[href="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();});});
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.08});
+    els.forEach(function(el){io.observe(el);});
+  } else { els.forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+</body>
+</html>
